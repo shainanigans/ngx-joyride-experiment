@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+$gutter: 0.625rem;
+$box-shadow-light: 0 1px 2px 0 rgba(30, 30, 30, 0.2);
+body {
+	margin: 20px;
+}
+h1 {
+	background-color: pink;
+}
+h1+div {
+	background-color: lavender;
+}
+// ***********
+// overrides
+// ***********
+
+// backdrop
+.joyride-backdrop {
+	background-color: rgba(0,0,0,0.2) !important; // override inline
+}
+.backdrop-top {
+	margin-top: - $gutter;
+}
+.backdrop-right {
+	margin-left: $gutter * 2;
+	height: calc(100% + #{$gutter * 2});
+}
+.backdrop-bottom {
+	margin-top: $gutter * 2;
+}
+.backdrop-left {
+	margin-left: - $gutter;
+	height: calc(100% + #{$gutter * 2});
+}
