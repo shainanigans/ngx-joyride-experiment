@@ -1,12 +1,54 @@
 <div class="w-100 p-3">
   <button type="button" (click)="onTourStart()">Click me!</button>
 </div>
-<h1 joyrideStep="firstStep" [stepContent]="customContent">Text</h1>
+<h1
+  joyrideStep="firstStep"
+  [stepContent]="customContent"
+  stepPosition="center"
+  [nextTemplate]="nextButton"
+  [prevTemplate]="prevButton"
+>
+  Text (1)
+</h1>
 <div joyrideStep="secondStep" title="Page Title" text="Main title!">
-  <div joyrideStep="thirdStep">Div content</div>
+  <div
+    joyrideStep="thirdStep"
+    [nextTemplate]="nextButton"
+    [prevTemplate]="prevButton"
+  >
+    Div content (2, 3)
+    <button type="button" (click)="onNextClick(1)">Click for next</button>
+  </div>
 </div>
-<span joyrideStep="fourthStep">Four</span>
+<span joyrideStep="fourthStep">Four (4)</span>
 
 <ng-template #customContent>
-  blah
+  <div>Subheading</div>
+  <div>Heading</div>
+
+  <span>Try it!</span>
+  <p>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe nam quaerat
+    cupiditate ea error suscipit quae debitis harum aliquam quidem, dolore
+    tenetur ab, in cumque maxime culpa perferendis corporis laudantium.
+  </p>
+  <div>
+    Next: <button type="button" (click)="onNextClick(1)">Next Step Name</button>
+  </div>
+  <div>
+    <p>Deep Dive</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <ul>
+      <li>
+        <button type="button" (click)="onNextClick(3)">
+          Deep Dive 1 (skip to step 4)
+        </button>
+      </li>
+      <li><button type="button">Deep Dive 2</button></li>
+      <li><button type="button">Deep Dive 3</button></li>
+    </ul>
+  </div>
 </ng-template>
+
+<ng-template #nextButton> </ng-template>
+<ng-template #prevButton> </ng-template>

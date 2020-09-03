@@ -19,15 +19,22 @@ h1+div {
 }
 .backdrop-top {
 	margin-top: - $gutter;
+	pointer-events: all;
 }
 .backdrop-right {
 	margin-left: $gutter * 2;
 	height: calc(100% + #{$gutter * 2});
+	pointer-events: all;
 }
 .backdrop-bottom {
 	margin-top: $gutter * 2;
+	pointer-events: all;
 }
 .backdrop-left {
 	margin-left: - $gutter;
 	height: calc(100% + #{$gutter * 2});
+	pointer-events: all;
+}
+.backdrop-container {
+	pointer-events: none;
 }

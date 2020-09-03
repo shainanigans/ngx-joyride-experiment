@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { JoyrideService } from 'ngx-joyride';
+import { JoyrideService, JoyrideStepService, StepDrawerService } from 'ngx-joyride';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +9,18 @@ import { JoyrideService } from 'ngx-joyride';
 export class AppComponent {
   title = 'joyride';
 
-  constructor(private readonly joyrideService: JoyrideService) {}
+  constructor(private readonly joyrideService: JoyrideService, private readonly joyrideStepService: JoyrideStepService, private readonly stepDrawerService: StepDrawerService) {}
 
   public onTourStart() {
 		this.joyrideService.startTour(
 			{ steps: ['firstStep', 'secondStep', 'thirdStep', 'fourthStep'], startWith: 'firstStep' } // Your steps order
 		);
-		console.log('after start', this.joyrideService);
-	}
+  }
+  
+  public onNextClick(skipCount: number) {
+    for (let i = 0; i < skipCount; i++) {
+      // this.stepDrawerService.remove(i); // How to close the other ones?
+      this.joyrideStepService.next();
+    }
+  }
 }
